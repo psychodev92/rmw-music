@@ -15,7 +15,11 @@
     "node-forge": "^1.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-scripts": "^2.1.3",
+=======
+    "react-scripts": "^5.0.1",
+>>>>>>> 4aa07139115296d43c8277ce21a47afb457f9328
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "serialize-javascript": "^6.0.0",
