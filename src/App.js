@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from './shared/Header';
-/* import Homepage from './pages/Homepage'; */
+import Homepage from './pages/Homepage';
 import SingleNews from './pages/SingleNews';
+import Privacy from './pages/Privacy';
 import Footer from './shared/Footer';
 import './assets/css/index.css';
 
@@ -11,9 +12,10 @@ class App extends Component {
 			<div>
 				<Header />
 				
-				<main>
-					{/* <Homepage /> */}
-					<SingleNews title="Sleep Token releases new single 'Vore'" text="" image="https://i0.wp.com/boolintunes.com/wp-content/uploads/2021/08/lornashorereviewfeat.jpg" />
+				<main className="mt-5">
+					<Homepage />
+					{/* <SingleNews title="Sleep Token releases new single 'Vore'" text="" image="https://cdn-p.smehost.net/sites/2ed48fdcc3904f548299cd86d78e9885/wp-content/uploads/2023/02/sleeptokencover-1000x515.jpg" /> */}
+					{/* <Privacy /> */}
 
 					
 					<Footer />
