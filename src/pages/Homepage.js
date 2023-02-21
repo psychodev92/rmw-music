@@ -7,8 +7,9 @@ function Homepage() {
 	const [articles, setArticle] = useState([]);
 
 	useEffect(() => {
-		axios.get(`https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=${process.env.REACT_APP_API_KEY}`)
+		axios.get(`https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=4&apikey=${process.env.REACT_APP_API_KEY}`)
 			.then(response => {
+				console.log(response.data.articles);
 				setArticle(response.data.articles);
 			})
 			.catch(function (error) {
@@ -18,7 +19,7 @@ function Homepage() {
 
 	
 	const articlesList = articles.map( (article, id) => {
-		return <HighlightColumn key={id} options="small" title={article.title} text={article.description} image={article.urlToImage} />
+		return <HighlightColumn key={id} options="small" title={article.title} text={article.description} image={article.image} />
 	} );
 
 	return(
