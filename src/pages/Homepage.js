@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import HighlightColumn from '../components/highlightColumn';
 
+
 function Homepage() {
 	const [articles, setArticle] = useState([]);
 
 	useEffect(() => {
-		axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_API_KEY}`)
+		axios.get(`https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey=${process.env.REACT_APP_API_KEY}`)
 			.then(response => {
 				setArticle(response.data.articles);
 			})
@@ -17,11 +18,7 @@ function Homepage() {
 
 	
 	const articlesList = articles.map( (article, id) => {
-		if( id <= 3 ) {
-			return <div key={id}>
-				<HighlightColumn title={article.title} text={article.description} image={article.urlToImage} />
-			</div>
-		}
+		return <HighlightColumn key={id} options="small" title={article.title} text={article.description} image={article.urlToImage} />
 	} );
 
 	return(
@@ -29,7 +26,7 @@ function Homepage() {
 			<div className="rmwHighlightMainNews">
 				<div className="flex flex-col lg:flex-row gap-3">
 					<div className="flex-1">
-						<HighlightColumn title="Amazon Shoppers Are Ditching Designer" text="This is a wider card with supporting text below as a natural lead-in to additional content. This very helpfull for generate default content..." image="https://i0.wp.com/boolintunes.com/wp-content/uploads/2021/08/lornashorereviewfeat.jpg" />
+						<HighlightColumn options="big" title="Amazon Shoppers Are Ditching Designer" text="This is a wider card with supporting text below as a natural lead-in to additional content. This very helpfull for generate default content..." image="https://i0.wp.com/boolintunes.com/wp-content/uploads/2021/08/lornashorereviewfeat.jpg" />
 					</div>
 					
 					<div className="flex-1">

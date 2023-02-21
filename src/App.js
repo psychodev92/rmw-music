@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import Header from './shared/Header';
 import Homepage from './pages/Homepage';
-import SingleNews from './pages/SingleNews';
-import Privacy from './pages/Privacy';
+/* import SingleNews from './pages/SingleNews';
+import Privacy from './pages/Privacy'; */
 import Footer from './shared/Footer';
 import './assets/css/index.css';
+import './assets/css/news.scss';
 
 class App extends Component {
 	render() {
 		return (
-			<div>
+			<div className="touch-pan-y">
 				<Header />
 				
 				<main className="mt-5">

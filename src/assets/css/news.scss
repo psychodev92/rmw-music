@@ -1,62 +1,68 @@
-.rmwHighlightGrid {
-    @media screen and (max-width: 480px) {
-        z-index: 0;
-        font-size: 0;
-        overflow-x: auto;
-        padding-top: 3px;
-        overflow-y: hidden;
-        white-space: nowrap;
-        display: block !important;
-        transform: translate3d(0, 0, 0);
-        -webkit-overflow-scrolling: touch;
-        
-        .rmwHighlight--col {
-            width: 80%;
-            float: none;
-            margin-right: 10px;
-            white-space: normal;
-            vertical-align: top;
-            display: inline-block;
+body {
+    width: 100vw;
+    max-width: 100%;
+
+    .rmwHighlightGrid {
+        @media screen and (max-width: 480px) {
+            z-index: 0;
+            font-size: 0;
+            overflow-x: auto;
+            padding-top: 3px;
+            overflow-y: hidden;
+            white-space: nowrap;
+            display: flex !important;
+            justify-content: stretch;
+            transform: translate3d(0, 0, 0);
+            -webkit-overflow-scrolling: touch;
             
-            &:last-child {
-                margin-right: 0;
+            .rmwHighlight--col {
+                width: 80%;
+                flex: none;
+                margin-right: 10px;
+                white-space: normal;
+                vertical-align: top;
+                display: inline-block;
+                
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
     }
-}
-
-#privacyPolicy {
-    h1 {
-        font-size: 30px;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
-
-    h2 {
-        font-size: 26px;
-        font-weight: bold;
-        margin: 10px 0 5px;
-    }
-
-    p {
-        line-height: 1.75;
-        margin-bottom: 5px;
-
-        a {
-            text-decoration: underline;
+    
+    #privacyPolicy {
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
-    }
-}
-
-.singleNews {
-    .singleNews--title {}
-
-    .singleNews--image {}
-
-    .singleNews--text {
+    
+        h2 {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+    
         p {
             line-height: 1.75;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+    
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    .singleNews {
+        .singleNews--title {}
+    
+        .singleNews--image {}
+    
+        .singleNews--text {
+            p {
+                line-height: 1.75;
+                margin-bottom: 10px;
+            }
         }
     }
 }
