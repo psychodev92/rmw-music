@@ -20,27 +20,27 @@ function Header() {
 						</div>
 
 						<div className="flex-col flex-grow gap-x-2 pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-							<a className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline" href="#">
+							<a href="/" className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline">
 								News
 							</a>
 
-							<a className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline" href="#">
+							<a href="/" className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline">
 								Reviews
 							</a>
 
-							<a className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline" href="#">
+							<a href="/" className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline">
 								Concerts
 							</a>
 
-							<a className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline" href="#">
+							<a href="/" className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline">
 								Interviews
 							</a>
 
-							<a className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline" href="#">
+							<a href="/" className="transition-all duration-300 ease-linear px-3 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline">
 								About
 							</a>
 
-							<a className="transition-all duration-300 ease-linear px-4 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline" href="#">
+							<a href="/" className="transition-all duration-300 ease-linear px-4 py-2 text-sm font-semibold text-gray-900 border-b-2 border-transparent hover:border-red-800 focus:outline-none focus:shadow-outline">
 								Contact
 							</a>
 						</div>

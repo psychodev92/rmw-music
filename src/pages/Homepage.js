@@ -1,40 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import HighlightColumn from '../components/highlightColumn';
-
+import '../assets/css/news.scss';
 
 function Homepage() {
 	const [articles, setArticle] = useState([]);
+	const [latestNews, setLatestNews] = useState([]);
+	const [reviews, setReviews] = useState([]);
+	const [interviews, setInterviews] = useState([]);
 
 	useEffect(() => {
-		axios.get(`https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=4&apikey=${process.env.REACT_APP_API_KEY}`)
+		axios.get(`https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=5&apikey=${process.env.REACT_APP_API_KEY}`)
 			.then(response => {
-				console.log(response.data.articles);
+				response.data.articles[0].main = 1;
 				setArticle(response.data.articles);
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
+
+		axios.get(`https://api.spaceflightnewsapi.net/v3/articles?_limit=3`)
+			.then(response => {
+				setLatestNews(response.data);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+
+		axios.get(`https://api.spaceflightnewsapi.net/v3/articles?_limit=1`)
+			.then(response => {
+				setReviews(response.data);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+
+		axios.get(`https://api.spaceflightnewsapi.net/v3/articles?_limit=2`)
+			.then(response => {
+				setInterviews(response.data);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 	}, []);
-
 	
-	const articlesList = articles.map( (article, id) => {
-		return <HighlightColumn key={id} options="small" title={article.title} text={article.description} image={article.image} />
-	} );
-
 	return(
 		<div className="max-w-full md:max-w-[80%] px-5 md:px-0 mx-auto">
 			<div className="rmwHighlightMainNews">
-				<div className="flex flex-col lg:flex-row gap-3">
-					<div className="flex-1">
-						<HighlightColumn options="big" title="Amazon Shoppers Are Ditching Designer" text="This is a wider card with supporting text below as a natural lead-in to additional content. This very helpfull for generate default content..." image="https://i0.wp.com/boolintunes.com/wp-content/uploads/2021/08/lornashorereviewfeat.jpg" />
-					</div>
-					
-					<div className="flex-1">
-						<div className="rmwHighlightGrid grid grid-cols-4 md:grid-cols-2 gap-3">
-							{articlesList}
-						</div>
-					</div>
+				<div className="rmwHighlightGrid container m-auto">
+				{
+					articles.map( (article, id) => {
+						return <HighlightColumn
+									id={id}
+									title={article.title}
+									text={article.description.substring(1, 100)}
+									image={article.image}
+									className="rmwHighlightGrid--box"
+									main={(article.main) ? 1 : 0}
+								/>
+					} )
+				}
 				</div>
 			</div>
 
@@ -43,38 +68,22 @@ function Homepage() {
 					<h1 className="bg-slate-800 text-white uppercase font-bold p-2 mb-2">Latest News</h1>
 
 					<div>
-						<div className="flex flex-col lg:flex-row gap-2 pb-4 border-b">
-							<div className="flex-1">
-								<img alt="" src="https://townsquare.media/site/366/files/2023/02/attachment-architects_sam_carter.jpg" />
-							</div>
+						{
+							latestNews.map( (article, id) => {
+								return (
+									<div className="flex flex-col lg:flex-row gap-2 pb-4">
+										<div className="flex-1">
+											<img alt="" src={article.imageUrl} />
+										</div>
 
-							<div className="flex-1">
-								<h4 className="text-sm font-bold pb-3">Architects Pause Show After Man Rushes Stage + Insults Band</h4>
-								<p className="text-xs">The person mentioned late guitarist Tom Searle.</p>
-							</div>
-						</div>
-
-						<div className="flex flex-col lg:flex-row gap-2 py-4 border-b">
-							<div className="flex-1">
-								<img alt="" src="https://townsquare.media/site/366/files/2023/02/attachment-architects_sam_carter.jpg" />
-							</div>
-
-							<div className="flex-1">
-								<h4 className="text-sm font-bold pb-3">Architects Pause Show After Man Rushes Stage + Insults Band</h4>
-								<p className="text-xs">The person mentioned late guitarist Tom Searle.</p>
-							</div>
-						</div>
-
-						<div className="flex flex-col lg:flex-row gap-2 py-4">
-							<div className="flex-1">
-								<img alt="" src="https://townsquare.media/site/366/files/2023/02/attachment-architects_sam_carter.jpg" />
-							</div>
-
-							<div className="flex-1">
-								<h4 className="text-sm font-bold pb-3">Architects Pause Show After Man Rushes Stage + Insults Band</h4>
-								<p className="text-xs">The person mentioned late guitarist Tom Searle.</p>
-							</div>
-						</div>
+										<div className="flex-1">
+											<h4 className="text-sm font-bold pb-3">{article.title}</h4>
+											<p className="text-xs">{article.summary}</p>
+										</div>
+									</div>
+								)
+							} )
+						}
 					</div>
 				</div>
 
@@ -82,16 +91,22 @@ function Homepage() {
 					<h1 className="bg-slate-800 text-white uppercase font-bold p-2 mb-2">Reviews</h1>
 
 					<div>
-						<div className="flex flex-col lg:flex-row gap-2 pb-4">
-							<div className="flex-1">
-								<img alt="" src="https://townsquare.media/site/366/files/2023/02/attachment-architects_sam_carter.jpg" />
-							</div>
+						{
+							reviews.map( (article, id) => {
+								return (
+									<div className="flex flex-col lg:flex-row gap-2 pb-4">
+										<div className="flex-1">
+											<img alt="" src={article.imageUrl} />
+										</div>
 
-							<div className="flex-1">
-								<h4 className="text-sm font-bold pb-3">Architects Pause Show After Man Rushes Stage + Insults Band</h4>
-								<p className="text-xs">The person mentioned late guitarist Tom Searle.</p>
-							</div>
-						</div>
+										<div className="flex-1">
+											<h4 className="text-sm font-bold pb-3">{article.title}</h4>
+											<p className="text-xs">{article.summary}</p>
+										</div>
+									</div>
+								)
+							} )
+						}
 					</div>
 				</div>
 
@@ -99,27 +114,22 @@ function Homepage() {
 					<h1 className="bg-slate-800 text-white uppercase font-bold p-2 mb-2">Interviews</h1>
 
 					<div>
-						<div className="flex flex-col lg:flex-row gap-2 pb-4 border-b">
-							<div className="flex-1">
-								<img alt="" src="https://townsquare.media/site/366/files/2023/02/attachment-architects_sam_carter.jpg" />
-							</div>
+						{
+							interviews.map( (article, id) => {
+								return (
+									<div className="flex flex-col lg:flex-row gap-2 pb-4">
+										<div className="flex-1">
+											<img alt="" src={article.imageUrl} />
+										</div>
 
-							<div className="flex-1">
-								<h4 className="text-sm font-bold pb-3">Architects Pause Show After Man Rushes Stage + Insults Band</h4>
-								<p className="text-xs">The person mentioned late guitarist Tom Searle.</p>
-							</div>
-						</div>
-
-						<div className="flex flex-col lg:flex-row gap-2 py-4">
-							<div className="flex-1">
-								<img alt="" src="https://townsquare.media/site/366/files/2023/02/attachment-architects_sam_carter.jpg" />
-							</div>
-
-							<div className="flex-1">
-								<h4 className="text-sm font-bold pb-3">Architects Pause Show After Man Rushes Stage + Insults Band</h4>
-								<p className="text-xs">The person mentioned late guitarist Tom Searle.</p>
-							</div>
-						</div>
+										<div className="flex-1">
+											<h4 className="text-sm font-bold pb-3">{article.title}</h4>
+											<p className="text-xs">{article.summary}</p>
+										</div>
+									</div>
+								)
+							} )
+						}
 					</div>
 				</div>
 			</div>
