@@ -1,0 +1,42 @@
+.rmw-card--carousel {
+    @media screen and (max-width: 780px) {
+        overflow-x: auto;
+        min-height: 200px;
+        overflow-y: hidden;
+        white-space: nowrap;
+        display: flex !important;
+        justify-content: stretch;
+        transform: translate3d(0, 0, 0);
+        -webkit-overflow-scrolling: touch;
+        
+        .rmw-card_container {
+            flex: none;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 0;
+            margin-right: 10px;
+            white-space: normal;
+            vertical-align: top;
+            display: inline-block;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.rmw-card {
+    &.rmw-card--overlay {
+        border-radius: 0;
+        box-shadow: none;
+        
+        .rmw-card_details {
+            left: 0;
+            bottom: 0;
+            color: #FFFFFF;
+            position: absolute;
+            background-color: rgba(0,0,0,0.5);
+        }
+    }
+}
