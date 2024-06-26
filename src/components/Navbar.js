@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
     return (
         <nav className="rmw-navbar flex">
@@ -5,10 +7,11 @@ const Navbar = () => {
 
             <div className="flex-1 justify-end">
                 <ul className="flex gap-2 justify-end">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Projects</li>
-                    <li>Contact</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="news">News</Link></li>
+                    <li><Link to="concerts">Concerts</Link></li>
+                    <li><Link to="reviews">Reviews</Link></li>
+                    <li><Link to="about">About</Link></li>
                 </ul>
             </div>
         </nav>
