@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+export default function Navbar() {
     return (
         <nav className="rmw-navbar flex">
             <div className="flex-1">logo</div>
@@ -17,5 +17,3 @@ const Navbar = () => {
         </nav>
     );
 }
- 
-export default Navbar;
