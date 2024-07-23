@@ -4,7 +4,7 @@ export default function Single(props) {
     return (
         <div key={props.index} className="block w-full">
             <figure>
-                <img src="https://picsum.photos/id/1081/800/600" alt="card image" className="aspect-video w-full" />
+                <img src="https://picsum.photos/id/1081/800/600" alt={`cardImage-${props.index}`} className="max-w-[350px] aspect-video w-full" />
             </figure>
 
             <div>

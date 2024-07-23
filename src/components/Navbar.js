@@ -12,6 +12,7 @@ export default function Navbar() {
                     <li><Link to="concerts">Concerts</Link></li>
                     <li><Link to="reviews">Reviews</Link></li>
                     <li><Link to="about">About</Link></li>
+                    <li><Link to="login">Login</Link></li>
                 </ul>
             </div>
         </nav>

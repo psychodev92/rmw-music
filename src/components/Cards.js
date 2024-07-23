@@ -4,7 +4,7 @@ export default function Cards(props) {
     return (
         <div key={props.index} className="rmw-card flex-1 overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200">
             <figure>
-                <img src="https://picsum.photos/id/1081/800/600" alt="card image" className="aspect-video w-full" />
+                <img src="https://picsum.photos/id/1081/800/600" alt={`image-${props.index}`} className="aspect-video w-full" />
             </figure>
 
             <div className="p-6">
