@@ -5,7 +5,10 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#AD0000',
+                primary: {
+                    '600': '#AD0000',
+                    '500': '#C50000',
+                },
                 spotify: '#1DB954',
                 facebook: '#1877F2',
             }
